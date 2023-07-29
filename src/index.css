@@ -1,13 +1,74 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .polygon {
+    clip-path: polygon(
+    50% 0%,
+    83% 12%,
+    100% 43%,
+    94% 78%,
+    68% 100%,
+    32% 100%,
+    6% 78%,
+    0% 43%,
+    17% 12%
+  );
+}
+ 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+ 
+
+@font-face {
+  font-family: 'Jaya';
+  src: url('./../public/fonts/Jaya/jaya_baru-webfont.woff2') format('woff2'),
+       url('./../public/fonts/Jaya/jaya_baru-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./../public/fonts/Inter/inter-regular-webfont.woff2') format('woff2'),
+       url('./../public/fonts/Inter/inter-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+body{
+  font-family: Inter;
+  display: grid;
+  place-items: center;
+}
+
+
+ 
+ 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.out{
+  animation-name: out; 
+  animation-duration: 1000ms;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes out_to_right{
+  to{
+      transform: translateX(200%);
+  }
+}
+
+@keyframes out{
+  to{
+      transform: translateY(200%);
+  }
 }

@@ -1,0 +1,59 @@
+:root {
+  --ellipse-height: 125%;
+  --height: 700px;
+  --ellipse-starting-position: 37%;
+}
+.container {
+  position: relative;
+  display: grid;
+  max-width: 400px; 
+  position: relative;
+  // overflow-x: hidden;
+  padding-bottom: 7rem;
+  // min-height: 100vh;
+}
+
+.item {
+  position: absolute;
+  transform-origin: center center;
+  aspect-ratio: 1/1;
+  width: 180px;
+  // border-radius: 12%;
+  margin-top: 0%;
+  overflow: hidden;
+  margin-bottom: 10%;
+  z-index: -1; 
+  opacity: 0;
+  background-color: white;
+  clip-path: polygon(
+    50% 0%,
+    83% 12%,
+    100% 43%,
+    94% 78%,
+    68% 100%,
+    32% 100%,
+    6% 78%,
+    0% 43%,
+    17% 12%
+  );
+  &.running {
+    opacity: 1;
+  }
+  &.active {
+    opacity: 1;
+    transform: translate(0, 0);
+    z-index: 10;
+    transition: none;
+  }
+
+  &.ready-left {
+    transform: translate(-300px, 300px);
+  }
+  &.ready-right {
+    transform: translate(300px, 300px);
+  }
+}
+
+.bt {
+  height: 240px;
+}

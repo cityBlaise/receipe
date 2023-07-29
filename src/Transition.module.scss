@@ -1,0 +1,68 @@
+:root {
+  --btn_bg: rgba(229, 229, 229, 0.965);
+  --form_bg: rgba(234, 234, 234, 0.14);
+  --input_bg: rgb(245, 245, 245);
+  --input_border: none;
+}
+
+.newsletter {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+form {
+  transition: background-color 0.35s;
+  background-color: var(--form_bg);
+  border-radius: 5px;
+  padding: 0.8em;
+  gap: 15px;
+  display: flex;
+  box-shadow: 0 2px 10px rgba(197, 191, 191, 0.148);
+  &:focus-within {
+    --form_bg: rgba(247, 247, 247, 0.047);
+    --btn_bg: rgba(118, 90, 243, 0.965);
+    --btn_border: solid 3px rgba(40, 2, 209, 0.664);
+    --input_bg: rgb(255, 255, 255);
+    --input_border: solid 2px rgb(63, 199, 245);
+    button:hover {
+      transform: translateY(-5px);
+      background-color: var(--btn_bg);
+      //   box-shadow: 0 0px 5px rgb(126, 51, 223);
+      transition: transform 0.35s ease;
+      outline: var(--btn_border);
+    }
+    input {
+      color: black;
+    }
+  }
+  input {
+    transition: background-color 0.35s;
+    border: none;
+    outline: var(--input_border);
+    outline-color: rgb(125, 134, 134);
+    background-color: var(--input_bg);
+    padding: 10px 15px;
+    border-radius: inherit;
+    font-weight: 600;
+    color: rgb(224, 220, 220);
+    &::placeholder {
+      color: rgb(224, 220, 220);
+    }
+    &:focus {
+      transition: outline-color 0.45s;
+      outline: solid 2px rgba(159, 102, 233, 0.659);
+    }
+  }
+
+  button {
+    transition: background-color, transform 0.35s;
+    cursor: pointer;
+    border-radius: inherit;
+    border: inherit;
+    padding: 10px 15px;
+    color: white;
+    font-weight: 600;
+    background-color: var(--btn_bg);
+  }
+}

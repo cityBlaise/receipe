@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+.App nav {
+  position: relative;
+  display: grid;
+  gap: 13px;
+  border: solid 1px lavender;
+  padding: 10px;
+  color: rgb(55, 55, 213);
+  font-weight: 600;
+  & > * {
+    &:visited {
+      color: inherit;
+    }
+    &:focus {
+      color: rgb(79, 183, 48);
+    }
+    text-transform: capitalize;
+  }
+}
+
+.children {
+  margin-top: 20px;
+  display: grid;
+  place-items: center;
+  height: 300px;
+}
