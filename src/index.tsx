@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -19,11 +20,11 @@ const routes = createBrowserRouter([
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <AppProvider>
       <RouterProvider router={routes} />
     </AppProvider>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function
