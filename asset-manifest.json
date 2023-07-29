@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/cityBlaise/receipe.git/static/css/main.b8a9310e.css",
-    "main.js": "/cityBlaise/receipe.git/static/js/main.45147c4d.js",
-    "static/js/787.907d20ab.chunk.js": "/cityBlaise/receipe.git/static/js/787.907d20ab.chunk.js",
-    "static/media/inter-regular-webfont.woff": "/cityBlaise/receipe.git/static/media/inter-regular-webfont.fd6b1e62c9a4b30a7692.woff",
-    "static/media/jaya_baru-webfont.woff": "/cityBlaise/receipe.git/static/media/jaya_baru-webfont.f534b09c1c52c7195d52.woff",
-    "static/media/inter-regular-webfont.woff2": "/cityBlaise/receipe.git/static/media/inter-regular-webfont.c93a008cb29020415ae6.woff2",
-    "static/media/jaya_baru-webfont.woff2": "/cityBlaise/receipe.git/static/media/jaya_baru-webfont.62f3b7839109cc89316b.woff2",
-    "index.html": "/cityBlaise/receipe.git/index.html",
-    "static/media/blob2.svg": "/cityBlaise/receipe.git/static/media/blob2.56a2f25d23725a60ad9e.svg",
-    "static/media/blob.svg": "/cityBlaise/receipe.git/static/media/blob.c99648b4c9d140630f5c.svg",
-    "main.b8a9310e.css.map": "/cityBlaise/receipe.git/static/css/main.b8a9310e.css.map",
-    "main.45147c4d.js.map": "/cityBlaise/receipe.git/static/js/main.45147c4d.js.map",
-    "787.907d20ab.chunk.js.map": "/cityBlaise/receipe.git/static/js/787.907d20ab.chunk.js.map"
+    "main.css": "/receipe/static/css/main.370ab9f9.css",
+    "main.js": "/receipe/static/js/main.59765b8b.js",
+    "static/js/787.907d20ab.chunk.js": "/receipe/static/js/787.907d20ab.chunk.js",
+    "static/media/inter-regular-webfont.woff": "/receipe/static/media/inter-regular-webfont.fd6b1e62c9a4b30a7692.woff",
+    "static/media/jaya_baru-webfont.woff": "/receipe/static/media/jaya_baru-webfont.f534b09c1c52c7195d52.woff",
+    "static/media/inter-regular-webfont.woff2": "/receipe/static/media/inter-regular-webfont.c93a008cb29020415ae6.woff2",
+    "static/media/jaya_baru-webfont.woff2": "/receipe/static/media/jaya_baru-webfont.62f3b7839109cc89316b.woff2",
+    "index.html": "/receipe/index.html",
+    "static/media/blob2.svg": "/receipe/static/media/blob2.56a2f25d23725a60ad9e.svg",
+    "static/media/blob.svg": "/receipe/static/media/blob.c99648b4c9d140630f5c.svg",
+    "main.370ab9f9.css.map": "/receipe/static/css/main.370ab9f9.css.map",
+    "main.59765b8b.js.map": "/receipe/static/js/main.59765b8b.js.map",
+    "787.907d20ab.chunk.js.map": "/receipe/static/js/787.907d20ab.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b8a9310e.css",
-    "static/js/main.45147c4d.js"
+    "static/css/main.370ab9f9.css",
+    "static/js/main.59765b8b.js"
   ]
 }
