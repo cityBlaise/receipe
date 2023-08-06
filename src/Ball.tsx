@@ -19,6 +19,7 @@ function Ball() {
     console.log(stylesLoad)
   }, [stylesLoad])
   
+  if(stylesLoad)
   return (
     <div className="container">
       <>
@@ -49,6 +50,8 @@ function Ball() {
       <ScreenNav />
     </div>
   );
+  else
+  return(<div>loading...</div>)
 }
 
 export default Ball;
