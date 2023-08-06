@@ -2,15 +2,24 @@
 import { useEffect, useState } from 'react';
 
 const useAllCssLoaded = () => {
-  const [cssFilesLoaded, setCssFilesLoaded] = useState<String[]>([]);
+  const [cssFilesLoaded, setCssFilesLoaded] = useState([]);
   const [allCssLoaded, setAllCssLoaded] = useState(false);
-  const links = document.querySelectorAll('link[rel="stylesheet"]');
-  let a:  HTMLLinkElement[]=[]
-  links.forEach(element => {
-      a.push(element as HTMLLinkElement)
-  });
-  a.map(x=>x.onload =()=>console.log(x)
-  )
+ 
+    useEffect(() => {
+      const onPageLoad = () => {
+        setAllCssLoaded(true);
+      };
+  
+      // Check if the page has already loaded
+      if (document.readyState === 'complete') {
+        onPageLoad();
+      } else {
+        window.addEventListener('load', onPageLoad);
+        // Remove the event listener when component unmounts
+        return () => window.removeEventListener('load', onPageLoad);
+      }
+    
+  }, [cssFilesLoaded]);
 
   return allCssLoaded;
 };
