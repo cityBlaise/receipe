@@ -24,7 +24,7 @@ export default function Instructions() {
           <div className="flex overflow-hidden rounded-65 ">
             <img
               draggable={false}
-              src="/images/5.jpg"
+              src="/images/eplucher-les-pommes-de-terre.jpg"
               className="w-full shadow-lg shadow-slate-300 mask1"
               alt=""
             />
@@ -63,7 +63,7 @@ export default function Instructions() {
           <div className="flex overflow-hidden rounded-65 shadow-lg shadow-slate-400">
             <img
               draggable={false}
-              src="/images/6.jpg"
+              src="/images/SFS_cherry_tomato_salad_basil_fresh_mozzarella-30_toiyt5.webp"
               alt=""
               className="w-full"
             />

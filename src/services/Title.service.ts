@@ -1,4 +1,6 @@
 /* eslint-disable prettier/prettier */
+import { Dispatch } from 'react'
+import { Action } from './AppContext'
 function rpad(str: string, length: number, padChar: string) {
     if (str.length >= length) {
         return str;
@@ -95,22 +97,22 @@ export function getpoint(center: Point, raduis: number, x: number): number[] {
         y2 = (-b - Math.sqrt(delta)) / (2 * a);
 
     return [y1, y2];
-} 
-export function getCircleAnimationKeyFrame(center:Point,raduis:number,direction:number){ 
-    const iterations= Math.floor(raduis/20)
-    const transform=(index:number)=>direction>=0?
-                    `translate(${raduis - index*20}%,${getValue(center,raduis,raduis - index*20)}%)`:
-                    `translate(${-raduis + index*20}%,${getValue(center,raduis,-raduis + index*20)}%)`;
+}
+export function getCircleAnimationKeyFrame(center: Point, raduis: number, direction: number) {
+    const iterations = Math.floor(raduis / 20)
+    const transform = (index: number) => direction >= 0 ?
+        `translate(${raduis - index * 20}%,${getValue(center, raduis, raduis - index * 20)}%)` :
+        `translate(${-raduis + index * 20}%,${getValue(center, raduis, -raduis + index * 20)}%)`;
     return [
-    ...new Array (iterations).fill(null).map((_, index) => ({
-       transform:transform(index), scale:.5,
-    })),
-    { scale:1,transform: "translate(0)" },
-  ];
+        ...new Array(iterations).fill(null).map((_, index) => ({
+            transform: transform(index), scale: .5,
+        })),
+        { scale: 1, transform: "translate(0)" },
+    ];
 }
 
- 
-const getValue=(p:Point,raduis:number,xabs:number)=> {return getpoint(p,raduis,xabs).sort((a, b) => a - b)[0]}
+
+const getValue = (p: Point, raduis: number, xabs: number) => { return getpoint(p, raduis, xabs).sort((a, b) => a - b)[0] }
 
 //   const newspaperTiming: KeyframeAnimationOptions = {
 //     duration: 700,
@@ -122,9 +124,9 @@ const getValue=(p:Point,raduis:number,xabs:number)=> {return getpoint(p,raduis,x
 //     fill: "forwards"
 //   };
 
-export function imgSwitch(dragElement: HTMLDivElement, offsetX: number): void {
+export function imgSwitch(dragElement: HTMLDivElement, offsetX: number, changeItem: Dispatch<Action>): void {
     console.log(offsetX)
-    if (Math.abs(offsetX) < 80) {
+    if (Math.abs(offsetX) < 30) {
         dragElement.animate(
             [
                 { transform: `translate(0)` },
@@ -142,7 +144,7 @@ export function imgSwitch(dragElement: HTMLDivElement, offsetX: number): void {
         if (dragElement.nextElementSibling != null)
             dragElement.animate(
                 [
-                    { transform: `translateX(-200%)`}, 
+                    { transform: `translateX(-200%)` },
                 ],
                 {
                     duration: 300, // The duration is 0 to move the element instantly without any delay
@@ -150,21 +152,20 @@ export function imgSwitch(dragElement: HTMLDivElement, offsetX: number): void {
                     delay: 20,
                     easing: 'ease'
                 }
-            ).onfinish = () => dragElement.nextElementSibling!.animate(
-                // [
-                //     { transform: `translateX(0%)`,opacity: 0 },
-                //     { transform: `translateX(200%)`, opacity: 0, offset: 0.1 },
-                //     { transform: `translateX(0%)`, opacity: 1},
-                // ]
-                getCircleAnimationKeyFrame({x:0,y:300},300,1) as Keyframe[]
-                ,
-                {
-                    duration: 1000, // The duration is 0 to move the element instantly without any delay
-                    fill: 'forwards',
-                    delay: 150,
-                    easing: 'ease'
-                }
-            )
+            ).onfinish = () => {
+                dragElement.nextElementSibling!.animate(
+
+                    getCircleAnimationKeyFrame({ x: 0, y: 300 }, 300, 1) as Keyframe[]
+                    ,
+                    {
+                        duration: 1000, // The duration is 0 to move the element instantly without any delay
+                        fill: 'forwards',
+                        delay: 150,
+                        easing: 'ease'
+                    }
+                )
+                changeItem({ type: 'increment' });
+            }
         else
             dragElement.animate(
                 [
@@ -181,7 +182,7 @@ export function imgSwitch(dragElement: HTMLDivElement, offsetX: number): void {
         if (dragElement.previousElementSibling != null)
             dragElement.animate(
                 [
-                    { transform: `translateX(200%)`},  
+                    { transform: `translateX(200%)` },
                 ],
                 {
                     duration: 300, // The duration is 0 to move the element instantly without any delay
@@ -190,21 +191,24 @@ export function imgSwitch(dragElement: HTMLDivElement, offsetX: number): void {
                     easing: 'ease'
                 }
             )
-                .onfinish = () => dragElement.previousElementSibling!.animate(
-                    // [
-                    //     { transform: `translateX(0%)`,opacity: 0 },
-                    //     { transform: `translateX(-200%)`, opacity: 0, offset: 0.1 },
-                    //     { transform: `translateX(0%)`, opacity: 1},
-                    // ]
-                    getCircleAnimationKeyFrame({x:0,y:300},300,-1) as Keyframe[]
-                    ,
-                    {
-                        duration: 1000, // The duration is 0 to move the element instantly without any delay
-                        fill: 'forwards',
-                        delay: 150,
-                        easing: 'ease'
-                    }
-                )
+                .onfinish = () => {
+                    dragElement.previousElementSibling!.animate(
+                        // [
+                        //     { transform: `translateX(0%)`,opacity: 0 },
+                        //     { transform: `translateX(-200%)`, opacity: 0, offset: 0.1 },
+                        //     { transform: `translateX(0%)`, opacity: 1},
+                        // ]
+                        getCircleAnimationKeyFrame({ x: 0, y: 300 }, 300, -1) as Keyframe[]
+                        ,
+                        {
+                            duration: 1000, // The duration is 0 to move the element instantly without any delay
+                            fill: 'forwards',
+                            delay: 150,
+                            easing: 'ease'
+                        }
+                    )
+                    changeItem({ type: 'decrement' });
+                }
         else
             dragElement.animate(
                 [

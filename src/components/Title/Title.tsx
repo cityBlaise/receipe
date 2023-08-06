@@ -25,7 +25,7 @@ useLayoutEffect(() => {
     <div
       className="text-white/90 text-center  text-2xl h-14 
     font-biber"
-    style={{background:`hsl(${c?.recipe.color},80%,60%)`,transition:`background ease 00ms`}}
+    style={{background:`hsl(${c?.recipe.color},95%,70%)`,transition:`background ease 00ms`}}
     >
       <section ref={parent} className="h-full relative overflow-hidden">
         <div ref={title} className="grid place-items-center uppercase transition-transform delay-200 duration-1000 ease-in-out h-full w-full ">

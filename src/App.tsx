@@ -9,7 +9,7 @@ type Link = {
   component?: JSX.Element;
 };
 export const links: Link[] = [
-  { name: "fundamentals", component: <Ball top={0} left={0} /> },
+  { name: "fundamentals", component: <Ball/> },
   { name: "transitions", component: <Transition /> },
   { name: "keyframe animation" },
   { name: "choreography" },

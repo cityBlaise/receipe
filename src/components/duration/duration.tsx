@@ -21,13 +21,13 @@ export default function Duration() {
   }, [c?.recipe])
 
   return (
-    <section className="flex items-center justify-around gap-1 p-2 px-4 w-full overflow-x-hidden">
+    <section className="flex items-center justify-around gap-4 p-2 px-4 w-full overflow-x-hidden">
       <div className="order-last bg-slate-100 p-3 rounded-3xl grid gap-4">
         <GoThumbsup className="cursor-pointer" size={35} />
         <GoStar className="cursor-pointer" size={35} />
       </div>
-      <div className="w-full flex-grow-0 p-4 items-center font-biber flex gap-1"  style={{fontSize:`70px`}}>
-        <span  style={{fontSize:`70px`}} className="flex-grow-0" ref={count}>{duration}</span> <span>min</span>
+      <div className="w-full flex-grow-0 p-4 items-center font-biber grid grid-flow-col grid-cols-2 gap-1"  style={{fontSize:`70px`}}>
+        <span  style={{fontSize:`70px`}} ref={count}>{duration}</span> <span className="text-6xl">min</span>
       </div>
     </section>
   );

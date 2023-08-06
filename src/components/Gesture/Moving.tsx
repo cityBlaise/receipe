@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import React, { useRef } from 'react'
+import React, { Dispatch, useRef } from 'react'
+import { Action, useAppContext } from '../../services/AppContext';
 const animOption: KeyframeAnimationOptions = {
     duration: 150, // The duration is 0 to move the element instantly without any delay
     fill: 'forwards',
@@ -8,12 +9,13 @@ const animOption: KeyframeAnimationOptions = {
 }
 type props = React.PropsWithChildren<{
     className?: string;
-    reset?:(target:HTMLDivElement,offsetX:number)=>void
+    reset?:(target:HTMLDivElement,offsetX:number,changeItem: Dispatch<Action>)=>void
 }>
 function isMouseEvent(e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>): e is React.MouseEvent<HTMLDivElement> {
     return 'clientX' in e;
 }
   const Moving: React.FC<props>= ({ children, className,reset }: props) =>{
+    const context = useAppContext();
     let dragElement = useRef<HTMLDivElement>(null)
     let offsetX: number, offsetY: number, isDragging = false;
     let clampedX=0,clampedY=0;
@@ -99,7 +101,7 @@ function isMouseEvent(e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTM
             animOption
         )
         else
-        reset(dragElement.current!,clampedX)
+        reset(dragElement.current!,clampedX,context?.changeRecipe!)
         // Remove the event listeners when the drag ends 
         document.removeEventListener('mousemove', drag);
         document.removeEventListener('mouseup', endDrag);
