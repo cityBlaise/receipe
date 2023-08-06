@@ -9,9 +9,16 @@ import Title from "./components/Title/Title";
 import { useAppContext } from "./services/AppContext";
 import Moving from "./components/Gesture/Moving";
 import { imgSwitch } from "./services/Title.service";
+import useAllCssLoaded from "./services/cssLoaded";
+import { useEffect } from "react";
  
 function Ball() { 
   const context = useAppContext();  
+  const stylesLoad = useAllCssLoaded()
+  useEffect(() => {
+    console.log(stylesLoad)
+  }, [stylesLoad])
+  
   return (
     <div className="container">
       <>

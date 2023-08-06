@@ -3,10 +3,12 @@ import { useEffect, useRef} from "react";
 import { FaAngleLeft } from "react-icons/fa6";
 import { GoDeviceCameraVideo } from "react-icons/go"; 
 import { useAppContext } from "../../services/AppContext";
+import { useNavigate } from "react-router-dom";
  
 export default function Header() {  
   const context = useAppContext();
   const video= useRef<HTMLDivElement|null>(null)
+  const navigate = useNavigate();
   useEffect(() => { 
     if(context?.recipe.video){
       video.current!.animate(
@@ -39,7 +41,9 @@ export default function Header() {
  
   return (
     <div className="flex  items-center py-1 justify-between px-3" style={{background:`hsl(${context?.recipe.color},95%,70%)`,transition:`background ease 00ms`}}>
-      <FaAngleLeft size={30} fill="white" className="cursor-pointer" />
+      <FaAngleLeft
+      onClick={()=>navigate(-1)}
+       size={30} fill="white" className="cursor-pointer" />
       <div className="flex items-stretch gap-3  justify-between">
         <div 
         ref={video}
