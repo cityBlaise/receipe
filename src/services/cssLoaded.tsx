@@ -8,7 +8,7 @@ const useAllCssLoaded = () => {
   useEffect(() => {
     const links = document.querySelectorAll('link[rel="stylesheet"]');
     const totalCssFiles = links.length;
-    console.log(totalCssFiles);
+    console.log(links);
 
     const handleCssLoad = (event:Event) => {
       const { href } = event.target as HTMLLinkElement ;
@@ -24,7 +24,7 @@ const useAllCssLoaded = () => {
 
     links.forEach((link) => {
       if (link.addEventListener) {
-        link.addEventListener('load', handleCssLoad);
+        link.addEventListener('load', ()=>console.log('loaded'));
       }  
     });
 
