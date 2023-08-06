@@ -21,13 +21,11 @@ const useAllCssLoaded = () => {
 
       
     };
-
-    links.forEach((link) => {
-      if (link.addEventListener) {
-        link.addEventListener('load', ()=>console.log('loaded'));
-      }  
+    let a: any[]=[]
+    links.forEach(element => {
+        a.push(element)
     });
-
+    console.log(a)
     return () => {
       links.forEach((link) => {
         if (link.removeEventListener) {
