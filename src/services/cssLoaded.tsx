@@ -21,18 +21,19 @@ const useAllCssLoaded = () => {
 
       
     };
-    let a: any[]=[]
+    let a:  HTMLLinkElement[]=[]
     links.forEach(element => {
-        a.push(element)
+        a.push(element as HTMLLinkElement)
     });
-    console.log(a)
-    return () => {
-      links.forEach((link) => {
-        if (link.removeEventListener) {
-          link.removeEventListener('load', handleCssLoad);
-        }
-      });
-    };
+    a.map(x=>x.addEventListener('load',()=>console.log('loaded')
+    ))
+    // return () => {
+    //   links.forEach((link) => {
+    //     if (link.removeEventListener) {
+    //       link.removeEventListener('load', handleCssLoad);
+    //     }
+    //   });
+    // };
   }, [cssFilesLoaded]);
 
   return allCssLoaded;
