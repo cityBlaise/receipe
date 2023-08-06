@@ -9,8 +9,8 @@ const useAllCssLoaded = () => {
   links.forEach(element => {
       a.push(element as HTMLLinkElement)
   });
-  a.map(x=>x.addEventListener('load',()=>console.log('loaded')
-  ))
+  a.map(x=>x.onload =()=>console.log(x)
+  )
 
   return allCssLoaded;
 };
