@@ -40,9 +40,9 @@ export default function Header() {
   }, [context?.recipe])
  
   return (
-    <div className="flex  items-center py-1 justify-between px-3" style={{background:`hsl(${context?.recipe.color},95%,70%)`,transition:`background ease 00ms`}}>
+    <div className="flex  items-center py-4 justify-between px-3" style={{background:`hsl(${context?.recipe.color},95%,70%)`,transition:`background ease 00ms`}}>
       <FaAngleLeft
-      onClick={()=>navigate(-1)}
+      onClick={()=>navigate('/')}
        size={30} fill="white" className="cursor-pointer" />
       <div className="flex items-stretch gap-3  justify-between">
         <div 

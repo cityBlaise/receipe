@@ -24,8 +24,8 @@ function Ball() {
       <>
         <Header />
         <Title />
-        <BottomMak className="relative h-64 overflow-hidden">  
-          <div className="overflow-hidden w-full pt-1 mx-auto flex justify-center  h-full relative" style={{ clipPath: ` ellipse(50% 100% at 50% 0%)`,
+        <BottomMak className="relative h-[240px] overflow-hidden">  
+          <div className="overflow-hidden w-full  mx-auto flex justify-center  h-full relative" style={{ clipPath: ` ellipse(50% 100% at 50% 0%)`,
           background:`linear-gradient(to bottom, hsl(${context?.recipe.color},95%,70%) , hsl(${context?.recipe.color},70%,50%) 40%)`,transition:`background ease 1000ms` }}>
             {context?.images!.map((img,index)=> (
               <Moving 

@@ -8,7 +8,7 @@ export default function Instructions() {
       // console.log(c?.data)
     }, [c?.recipe])
   return (
-    <div className="instructions overflow-y-scroll mt-28 pt-7">
+    <div className="instructions overflow-y-scroll mt-28 pt-7 mb-[120px]">
       <div className="">
         <h3 className="font-biber text-2xl mb-2 px-5">
           1. wash potatoes well

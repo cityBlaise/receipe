@@ -23,7 +23,7 @@ useLayoutEffect(() => {
 }, [c?.recipe])
   return (
     <div
-      className="text-white/90 text-center  text-2xl h-14 
+      className="text-white/90 text-center  text-2xl h-[60px] 
     font-biber"
     style={{background:`hsl(${c?.recipe.color},95%,70%)`,transition:`background ease 00ms`}}
     >
