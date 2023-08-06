@@ -4,6 +4,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import Ball from "./Ball";
 import Transition from "./Transition"; 
 import Moving from "./components/Gesture/Moving";
+import useAllCssLoaded from "./services/cssLoaded";
 type Link = {
   name: string;
   component?: JSX.Element;
@@ -26,6 +27,7 @@ export const links: Link[] = [
   },
 ];
 function App() {
+  const stylesLoad = useAllCssLoaded()
   return (
     <div className="App">
       <nav>
