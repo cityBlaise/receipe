@@ -12,11 +12,14 @@ const useAllCssLoaded = () => {
 
     const handleCssLoad = (event:Event) => {
       const { href } = event.target as HTMLLinkElement ;
-      setCssFilesLoaded((prev) => [...prev, href]);
+      setCssFilesLoaded((prev) => {
+        if (cssFilesLoaded.length+1 === totalCssFiles) {
+            setAllCssLoaded(true);
+          }
+        return [...prev, href]
+     });
 
-      if (cssFilesLoaded.length === totalCssFiles) {
-        setAllCssLoaded(true);
-      }
+      
     };
 
     links.forEach((link) => {
